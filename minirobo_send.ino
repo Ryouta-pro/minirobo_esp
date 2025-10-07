@@ -8,12 +8,11 @@ void setup() {
 
 void loop() {
   if (PS4.isConnected()) {
-    if (PS4.LStickX()) {
+    if (PS4.LStickX() && PS4.LStickY() && PS4.RStickX()) {
 
       int8_t num[3] = {PS4.LStickX(),PS4.LStickY(),PS4.RStickX()};
       for(int i = 0;i <= 2;i++){
-        // int i = 0;
-        String str1 = String(static_cast<int>(num[i] + i*256));
+        String str1 = String(static_cast<int>(num[i] + i*255));
         Serial.print(str1 + "\n");
       }
     }
